@@ -1,0 +1,17 @@
+diff --git a/core/lib/Drupal/Core/Lock/DatabaseLockBackend.php b/core/lib/Drupal/Core/Lock/DatabaseLockBackend.php
+index 91077e7..1b0f53f 100644
+--- a/core/lib/Drupal/Core/Lock/DatabaseLockBackend.php
++++ b/core/lib/Drupal/Core/Lock/DatabaseLockBackend.php
+@@ -235,7 +235,11 @@ public function schemaDefinition() {
+         'value' => ['value'],
+         'expire' => ['expire'],
+       ],
+-      'primary key' => ['name'],
++      'unique keys' => [
++        'name' => ['name'],
++      ],
++      'primary key' => ['name', 'value'],
++      'mysql_engine' => 'MEMORY',
+     ];
+   }
+ 

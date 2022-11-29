@@ -1,0 +1,16 @@
+Index: core/lib/Drupal/Core/Locale/CountryManager.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/core/lib/Drupal/Core/Locale/CountryManager.php b/core/lib/Drupal/Core/Locale/CountryManager.php
+--- a/core/lib/Drupal/Core/Locale/CountryManager.php	(revision e187f925ed6aa9d9d4b3121904c077aa54ba108a)
++++ b/core/lib/Drupal/Core/Locale/CountryManager.php	(date 1639650062977)
+@@ -143,7 +143,6 @@
+       'HR' => t('Croatia'),
+       'HT' => t('Haiti'),
+       'HU' => t('Hungary'),
+-      'IC' => t('Canary Islands'),
+       'ID' => t('Indonesia'),
+       'IE' => t('Ireland'),
+       'IL' => t('Israel'),

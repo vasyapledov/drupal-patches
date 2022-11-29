@@ -1,0 +1,9 @@
+{
+    "name": "mh/drupal-patches",
+    "description": "Contain patches for the MH Drupal package.",
+    "type": "drupal-custom-patches",
+    "license": "GPL-2.0+",
+    "require": {},
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

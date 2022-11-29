@@ -1,0 +1,28 @@
+diff --git a/core/lib/Drupal/Core/Config/ConfigImporter.php b/core/lib/Drupal/Core/Config/ConfigImporter.php
+index 3e4c264..6f7b58e 100644
+--- a/core/lib/Drupal/Core/Config/ConfigImporter.php
++++ b/core/lib/Drupal/Core/Config/ConfigImporter.php
+@@ -3,6 +3,7 @@
+ namespace Drupal\Core\Config;
+ 
+ use Drupal\Core\Config\Importer\MissingContentEvent;
++use Drupal\Core\Entity\EntityInterface;
+ use Drupal\Core\Extension\ModuleExtensionList;
+ use Drupal\Core\Extension\ModuleHandlerInterface;
+ use Drupal\Core\Extension\ModuleInstallerInterface;
+@@ -881,8 +882,13 @@ class ConfigImporter {
+             $entity_storage = $this->configManager->getEntityTypeManager()->getStorage($entity_type_id);
+             $entity_type = $this->configManager->getEntityTypeManager()->getDefinition($entity_type_id);
+             $entity = $entity_storage->load($entity_storage->getIDFromConfigName($name, $entity_type->getConfigPrefix()));
+-            $entity->delete();
+-            $this->logError($this->t('Deleted and replaced configuration entity "@name"', ['@name' => $name]));
++
++            // @todo I'm not sure about this check. Be careful.
++            if ($entity instanceof EntityInterface) {
++              $entity->delete();
++              $this->logError($this->t('Deleted and replaced configuration entity "@name"', ['@name' => $name]));
++            }
++
+           }
+           else {
+             $this->storageComparer->getTargetStorage($collection)->delete($name);

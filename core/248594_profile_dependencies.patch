@@ -1,0 +1,25 @@
+Index: core/profiles/standard/config/install/automated_cron.settings.yml
+===================================================================
+diff --git a/core/profiles/standard/config/install/automated_cron.settings.yml b/core/profiles/standard/config/install/automated_cron.settings.yml
+deleted file mode 100644
+--- a/core/profiles/standard/config/install/automated_cron.settings.yml	(revision a96d9c7133892fd7cfa1a0262387b6f941e408d7)
++++ /dev/null	(revision a96d9c7133892fd7cfa1a0262387b6f941e408d7)
+@@ -1,1 +0,0 @@
+-interval: 10800
+Index: core/profiles/standard/standard.info.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/core/profiles/standard/standard.info.yml b/core/profiles/standard/standard.info.yml
+--- a/core/profiles/standard/standard.info.yml	(revision a96d9c7133892fd7cfa1a0262387b6f941e408d7)
++++ b/core/profiles/standard/standard.info.yml	(date 1656063988514)
+@@ -35,7 +35,7 @@
+   - views
+   - views_ui
+   - tour
+-  - automated_cron
++  - mh_tools
+ themes:
+   - olivero
+   - claro

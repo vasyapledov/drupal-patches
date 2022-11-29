@@ -1,0 +1,64 @@
+Index: core/modules/system/src/Form/FileSystemForm.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- a/core/modules/system/src/Form/FileSystemForm.php	(date 1576665243000)
++++ b/core/modules/system/src/Form/FileSystemForm.php	(date 1577284635000)
+@@ -94,7 +94,7 @@
+    * {@inheritdoc}
+    */
+   public function buildForm(array $form, FormStateInterface $form_state) {
+-    $config = $this->config('system.file');
++    $config = \Drupal::config('system.file');
+     $form['file_public_path'] = [
+       '#type' => 'item',
+       '#title' => t('Public file system path'),
+Index: core/modules/locale/locale.module
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- a/core/modules/locale/locale.module	(date 1576665243000)
++++ b/core/modules/locale/locale.module	(date 1577284687000)
+@@ -755,7 +755,7 @@
+   $form['translation_path'] = [
+     '#type' => 'textfield',
+     '#title' => t('Interface translations directory'),
+-    '#default_value' => \Drupal::configFactory()->getEditable('locale.settings')->get('translation.path'),
++    '#default_value' => \Drupal::config('locale.settings')->get('translation.path'),
+     '#maxlength' => 255,
+     '#description' => t('A local file system path where interface translation files will be stored.'),
+     '#required' => TRUE,
+Index: core/modules/locale/src/Form/LocaleSettingsForm.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- a/core/modules/locale/src/Form/LocaleSettingsForm.php	(date 1576665243000)
++++ b/core/modules/locale/src/Form/LocaleSettingsForm.php	(date 1577284582000)
+@@ -31,7 +31,7 @@
+    * {@inheritdoc}
+    */
+   public function buildForm(array $form, FormStateInterface $form_state) {
+-    $config = $this->config('locale.settings');
++    $config = \Drupal::config('locale.settings');
+
+     $form['update_interval_days'] = [
+       '#type' => 'radios',
+Index: core/modules/syslog/syslog.module
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- a/core/modules/syslog/syslog.module	(date 1576665243000)
++++ b/core/modules/syslog/syslog.module	(date 1577284491000)
+@@ -34,7 +34,7 @@
+  * Implements hook_form_FORM_ID_alter().
+  */
+ function syslog_form_system_logging_settings_alter(&$form, FormStateInterface $form_state) {
+-  $config = \Drupal::configFactory()->getEditable('syslog.settings');
++  $config = \Drupal::config('syslog.settings');
+   $help = \Drupal::moduleHandler()->moduleExists('help') ? ' ' . Link::fromTextAndUrl(t('More information'), Url::fromRoute('help.page', ['name' => 'syslog']))->toString() . '.' : NULL;
+   $form['syslog_identity'] = [
+     '#type'          => 'textfield',
